@@ -25,14 +25,11 @@ public class ThreadSoundsComMonitor implements Runnable{
 
     @Override
     public void run() {
-        JavaSoundScreen.txtSoundsController(("Musica: "+nome+" Iniciada!"));
-      
         try {
-            m.play(melodia);
+            m.play(melodia, nome);
+            JavaSoundScreen.txtSoundsController(("Musica "+nome+" finalizada!"));
         } catch (LineUnavailableException ex) {
             JavaSoundScreen.txtSoundsController(("Erro ao executar a musica "+nome));
         }
-       
-        JavaSoundScreen.txtSoundsController(("Musica "+nome+" finalizada"));
     }
 }

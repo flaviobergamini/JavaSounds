@@ -18,16 +18,15 @@ public class MelodiasComMonitor{
     
     private int melodia[];
     
-    public synchronized void play(int melodia []) throws LineUnavailableException{
+    public synchronized void play(int melodia [], String nome) throws LineUnavailableException{
         this.melodia = melodia;
+        JavaSoundScreen.txtSoundsController(("Musica: "+nome+" iniciada!"));
         byte[] buf = new byte[ 1 ];
         AudioFormat af = new AudioFormat( (float )44100, 8, 1, true, false );
         SourceDataLine sdl = AudioSystem.getSourceDataLine( af );
         sdl.open();
         sdl.start();
-        
-        int tempo = 1000;
-      
+       
         for(int nota : melodia){
             for( int i = 0; i < 22050; i++ ) {
                 double angle = i / ( (float )44100 / nota ) * 2.0 * Math.PI;

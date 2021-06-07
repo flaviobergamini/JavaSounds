@@ -5,6 +5,8 @@
  */
 package javasounds;
 
+import java.awt.Color;
+
 /**
  *
  * @author fhmbe
@@ -17,6 +19,7 @@ public class JavaSounds {
     public static void main(String[] args) {
         // TODO code application logic here
         new JavaSoundScreen().setVisible(true);
+        
         
         
     }
